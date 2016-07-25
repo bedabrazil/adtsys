@@ -45,7 +45,7 @@ class HomeController < ApplicationController
   private
 
   def vehicle_price_empty?
-    if !params[:car_model_year][:fipe_id].blank? && !params[:car_model][:fipe_id].blank?
+    if !params[:car_model][:fipe_id].blank? && !params[:car_model_year][:fipe_id].blank?
       VehiclePrice.where(car_model_year: CarModelYear.find_by(fipe_key: "#{params[:car_model_year][:fipe_id]}-1", car_model: CarModel.find_by(fipe_id: params[:car_model][:fipe_id]))).blank?
     end
   end

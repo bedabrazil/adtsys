@@ -1,16 +1,5 @@
 $(function(){
-	// $('form').on('change', '#car_model_year_fipe_id', function(){
-	// 	$.ajax({
-	// 		type: 'GET',
-	// 		url: '/home/search_vehicle_prices',
-	// 		dataType: 'json',
-	// 		data: {
-	// 			car_mark_fipe_id: $("#car_mark_fipe_id option:selected").val(),
-	// 			car_model_fipe_id: $("#car_model_fipe_id option:selected").val(),
-	// 			car_model_year_fipe_id: $(this).val()
-	// 		}
-	// 	});		
-	// })
+	$('form input[type="submit"]').attr("disabled", true);
 	$(document).ajaxStart(function() {
 	  $(".overlay-body").addClass('overlay');  
 	  $(".loader").show();
@@ -33,6 +22,7 @@ $(function(){
 			success: function(data){
 				$("#car_model_year_fipe_id").remove();
 				createSelect('car_model_year_fipe_id', 'car_model_year[fipe_id]', data.object, 'Selecione um Ano/Modelo', car_model_years_id);
+				$('form input[type="submit"]').attr("disabled", false);
 			}
 		});
 	});
