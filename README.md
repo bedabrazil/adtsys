@@ -2,14 +2,13 @@
 
 ## Resumo
 
-O objetivo da aplicação é consultar marcas e modelos de carros usando a API do WebMotors.
+O objetivo da aplicação é consultar marcas, modelos e preços de carros usando a API da FIPE.
 
 ## Objetivo
 
 1. Faça um fork do projeto;
-2. Execute o rails server;
-3. Verifique o funcionamento da aplicação;
-4. Abra o código e faça uma análise para uma melhor compreensão;
-5. Utilize seu conhecimento em Ruby/Rails e Orientação a Objetos para fazer todas as possíveis mudanças que julgar pertinente: classes, métodos, variáveis e boas práticas.
+2. Execute bundle install
+3. Execute rake db:create e rake db:migrate
+4. Execute rails server;
+5. Verifique o funcionamento da aplicação;
 
-Obs: todo o cuidado e rigor adicional serão contados como pontos positivos.
