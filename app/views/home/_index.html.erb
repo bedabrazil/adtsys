@@ -1,0 +1,22 @@
+<% if !@vehicle_prices.blank?%>
+	<div class="col-lg-12">
+		<div class="col-lg-12">
+			<label>Mês de referência</label>: <%=@vehicle_prices.reference%>
+		</div>	
+		<div class="col-lg-12">
+			<label>Marca</label>: <%=@vehicle_prices.mark%>
+		</div>	
+		<div class="col-lg-12">
+			<label> Modelo</label>: <%=@vehicle_prices.name%>
+		</div>
+		<div class="col-lg-12">
+			<label>Ano/Modelo</label>: <%=(@vehicle_prices.year_model == '32000' ? 'Zero KM': @vehicle_prices.year_model) %>
+		</div>
+		<div class="col-lg-12">
+			<label> Combustível</label>: <%=@vehicle_prices.fuel%>
+		</div>
+		<div class="col-lg-12">
+			<label> Preço</label>: <%=@vehicle_prices.price%>
+		</div>
+	</div>
+<% end %>

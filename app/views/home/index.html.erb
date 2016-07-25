@@ -1,0 +1,32 @@
+<%= form_tag search_vehicle_prices_home_index_path, remote: true, method: :get do %>
+	<div class="col-lg-12 well">
+		<div class="col-lg-4 form-space">
+		<%= label_tag "fipe_id", "Marcas de Veículos" %>
+		<%= select 'car_mark', 'fipe_id', @car_marks.collect{|mark| [mark.name, mark.id]}, {prompt: 'Selecione uma marca'}, class: 'form-control' %>
+		</div>
+		<div id="car_models_id" class="col-lg-4 form-space">
+		<%= label_tag "fipe_id", "Modelos de Veículos" %>
+		<%= select 'car_model', 'fipe_id', [], {prompt: 'Selecione um Modelo'}, class: 'form-control', disabled: true %>
+		</div>
+		<div id="car_model_years_id" class="col-lg-4 form-space">
+		<%= label_tag "fipe_id", "Ano/Modelo" %>
+		<%= select 'car_model_year', 'fipe_id', [], {prompt: 'Selecione um Ano/Modelo'}, class: 'form-control', disabled: true %>
+		</div>	
+
+		<div class="col-lg-12 form-space">
+			<%= label_tag "" %>
+			<%= submit_tag 'Filtrar', class: 'btn btn-default' %>
+		</div>
+	</div>
+<% end%>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"></h3>
+  </div>
+  <div class="panel-body">
+		<div id="show_price">
+			<%= render 'index'%>
+		</div>
+  </div>
+</div>
+

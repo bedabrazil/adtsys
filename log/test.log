@@ -1,0 +1,702 @@
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "car_marks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "fipe_name" varchar, "fipe_key" varchar, "fipe_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "car_model_years" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "fipe_key" varchar, "car_model_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) 
+  [1m[36m (0.1ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (0.9ms)[0m  CREATE  INDEX "index_car_model_years_on_car_model_id" ON "car_model_years" ("car_model_id")
+  [1m[36m (1.4ms)[0m  [1mCREATE TABLE "car_models" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "fipe_name" varchar, "fipe_key" varchar, "fipe_id" integer, "car_mark_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE  INDEX "index_car_models_on_car_mark_id" ON "car_models" ("car_mark_id")
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "vehicle_prices" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "mark" varchar, "year_model" varchar, "price" varchar, "fuel" varchar, "reference" varchar, "car_model_year_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE  INDEX "index_vehicle_prices_on_car_model_year_id" ON "vehicle_prices" ("car_model_year_id")
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160724183940')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160724133815')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20160724133831')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20160724172025')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:11:39.259908"], ["updated_at", "2016-07-25 00:11:39.259908"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "car_models" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:11:39.270833"], ["updated_at", "2016-07-25 00:11:39.270833"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:13:53.769269"], ["updated_at", "2016-07-25 00:13:53.769269"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "car_models" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:13:53.788600"], ["updated_at", "2016-07-25 00:13:53.788600"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "car_model_years" ("name", "fipe_key", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "NAME"], ["fipe_key", "FIPE KEY"], ["created_at", "2016-07-25 00:13:53.796171"], ["updated_at", "2016-07-25 00:13:53.796171"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:15:51.856686"], ["updated_at", "2016-07-25 00:15:51.856686"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "car_models" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:15:51.874283"], ["updated_at", "2016-07-25 00:15:51.874283"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "car_model_years" ("name", "fipe_key", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "NAME"], ["fipe_key", "FIPE KEY"], ["created_at", "2016-07-25 00:15:51.881614"], ["updated_at", "2016-07-25 00:15:51.881614"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "vehicle_prices" ("name", "mark", "year_model", "price", "fuel", "reference", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["mark", "FIPE NAME"], ["year_model", "FIPE KEY"], ["price", "9999"], ["fuel", "FUEL"], ["reference", "REFERENCE"], ["created_at", "2016-07-25 00:15:51.891430"], ["updated_at", "2016-07-25 00:15:51.891430"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by HomeController#index as HTML
+  [1m[35mCarMark Load (0.1ms)[0m  SELECT "car_marks".* FROM "car_marks"
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "AUDI"], ["fipe_name", "Audi"], ["fipe_key", "audi-6"], ["fipe_id", 6], ["created_at", "2016-07-25 00:25:05.980941"], ["updated_at", "2016-07-25 00:25:05.980941"]]
+  [1m[36m (3.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "BMW"], ["fipe_name", "BMW"], ["fipe_key", "bmw-7"], ["fipe_id", 7], ["created_at", "2016-07-25 00:25:05.988890"], ["updated_at", "2016-07-25 00:25:05.988890"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "CITROEN"], ["fipe_name", "Citroën"], ["fipe_key", "citroen-13"], ["fipe_id", 13], ["created_at", "2016-07-25 00:25:05.992194"], ["updated_at", "2016-07-25 00:25:05.992194"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "FIAT"], ["fipe_name", "Fiat"], ["fipe_key", "fiat-21"], ["fipe_id", 21], ["created_at", "2016-07-25 00:25:05.994641"], ["updated_at", "2016-07-25 00:25:05.994641"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "FORD"], ["fipe_name", "Ford"], ["fipe_key", "ford-22"], ["fipe_id", 22], ["created_at", "2016-07-25 00:25:05.997205"], ["updated_at", "2016-07-25 00:25:05.997205"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "CHEVROLET"], ["fipe_name", "GM - Chevrolet"], ["fipe_key", "gm-chevrolet-23"], ["fipe_id", 23], ["created_at", "2016-07-25 00:25:05.999456"], ["updated_at", "2016-07-25 00:25:05.999456"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "HONDA"], ["fipe_name", "Honda"], ["fipe_key", "honda-25"], ["fipe_id", 25], ["created_at", "2016-07-25 00:25:06.001284"], ["updated_at", "2016-07-25 00:25:06.001284"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "HYUNDAI"], ["fipe_name", "Hyundai"], ["fipe_key", "hyundai-26"], ["fipe_id", 26], ["created_at", "2016-07-25 00:25:06.003638"], ["updated_at", "2016-07-25 00:25:06.003638"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "KIA"], ["fipe_name", "Kia Motors"], ["fipe_key", "kia-motors-31"], ["fipe_id", 31], ["created_at", "2016-07-25 00:25:06.005579"], ["updated_at", "2016-07-25 00:25:06.005579"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "MERCEDES-BENZ"], ["fipe_name", "Mercedes-Benz"], ["fipe_key", "mercedes-benz-39"], ["fipe_id", 39], ["created_at", "2016-07-25 00:25:06.007795"], ["updated_at", "2016-07-25 00:25:06.007795"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "MITSUBISHI"], ["fipe_name", "Mitsubishi"], ["fipe_key", "mitsubishi-41"], ["fipe_id", 41], ["created_at", "2016-07-25 00:25:06.009686"], ["updated_at", "2016-07-25 00:25:06.009686"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "NISSAN"], ["fipe_name", "Nissan"], ["fipe_key", "nissan-43"], ["fipe_id", 43], ["created_at", "2016-07-25 00:25:06.012323"], ["updated_at", "2016-07-25 00:25:06.012323"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "PEUGEOT"], ["fipe_name", "Peugeot"], ["fipe_key", "peugeot-44"], ["fipe_id", 44], ["created_at", "2016-07-25 00:25:06.014474"], ["updated_at", "2016-07-25 00:25:06.014474"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "RENAULT"], ["fipe_name", "Renault"], ["fipe_key", "renault-48"], ["fipe_id", 48], ["created_at", "2016-07-25 00:25:06.016499"], ["updated_at", "2016-07-25 00:25:06.016499"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "SUZUKI"], ["fipe_name", "Suzuki"], ["fipe_key", "suzuki-55"], ["fipe_id", 55], ["created_at", "2016-07-25 00:25:06.018667"], ["updated_at", "2016-07-25 00:25:06.018667"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "TOYOTA"], ["fipe_name", "Toyota"], ["fipe_key", "toyota-56"], ["fipe_id", 56], ["created_at", "2016-07-25 00:25:06.020755"], ["updated_at", "2016-07-25 00:25:06.020755"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "VOLVO"], ["fipe_name", "Volvo"], ["fipe_key", "volvo-58"], ["fipe_id", 58], ["created_at", "2016-07-25 00:25:06.022638"], ["updated_at", "2016-07-25 00:25:06.022638"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "VOLKSWAGEN"], ["fipe_name", "VW - VolksWagen"], ["fipe_key", "vw-volkswagen-59"], ["fipe_id", 59], ["created_at", "2016-07-25 00:25:06.024867"], ["updated_at", "2016-07-25 00:25:06.024867"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "ACURA"], ["fipe_name", "Acura"], ["fipe_key", "acura-1"], ["fipe_id", 1], ["created_at", "2016-07-25 00:25:06.027079"], ["updated_at", "2016-07-25 00:25:06.027079"]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "AGRALE"], ["fipe_name", "Agrale"], ["fipe_key", "agrale-2"], ["fipe_id", 2], ["created_at", "2016-07-25 00:25:06.029537"], ["updated_at", "2016-07-25 00:25:06.029537"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "ALFA ROMEO"], ["fipe_name", "Alfa Romeo"], ["fipe_key", "alfa-romeo-3"], ["fipe_id", 3], ["created_at", "2016-07-25 00:25:06.031617"], ["updated_at", "2016-07-25 00:25:06.031617"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "AM GEN"], ["fipe_name", "AM Gen"], ["fipe_key", "am-gen-4"], ["fipe_id", 4], ["created_at", "2016-07-25 00:25:06.033766"], ["updated_at", "2016-07-25 00:25:06.033766"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "ASIA MOTORS"], ["fipe_name", "Asia Motors"], ["fipe_key", "asia-motors-5"], ["fipe_id", 5], ["created_at", "2016-07-25 00:25:06.035802"], ["updated_at", "2016-07-25 00:25:06.035802"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "ASTON MARTIN"], ["fipe_name", "ASTON MARTIN"], ["fipe_key", "aston-martin-189"], ["fipe_id", 189], ["created_at", "2016-07-25 00:25:06.037823"], ["updated_at", "2016-07-25 00:25:06.037823"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "BRM"], ["fipe_name", "BRM"], ["fipe_key", "brm-8"], ["fipe_id", 8], ["created_at", "2016-07-25 00:25:06.040158"], ["updated_at", "2016-07-25 00:25:06.040158"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "BUGGY"], ["fipe_name", "Buggy"], ["fipe_key", "buggy-9"], ["fipe_id", 9], ["created_at", "2016-07-25 00:25:06.042222"], ["updated_at", "2016-07-25 00:25:06.042222"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "BUGRE"], ["fipe_name", "Bugre"], ["fipe_key", "bugre-123"], ["fipe_id", 123], ["created_at", "2016-07-25 00:25:06.044362"], ["updated_at", "2016-07-25 00:25:06.044362"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "CADILLAC"], ["fipe_name", "Cadillac"], ["fipe_key", "cadillac-10"], ["fipe_id", 10], ["created_at", "2016-07-25 00:25:06.046433"], ["updated_at", "2016-07-25 00:25:06.046433"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "CBT JIPE"], ["fipe_name", "CBT Jipe"], ["fipe_key", "cbt-jipe-11"], ["fipe_id", 11], ["created_at", "2016-07-25 00:25:06.048408"], ["updated_at", "2016-07-25 00:25:06.048408"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "CHANA"], ["fipe_name", "CHANA"], ["fipe_key", "chana-136"], ["fipe_id", 136], ["created_at", "2016-07-25 00:25:06.050516"], ["updated_at", "2016-07-25 00:25:06.050516"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "CHANGAN"], ["fipe_name", "CHANGAN"], ["fipe_key", "changan-182"], ["fipe_id", 182], ["created_at", "2016-07-25 00:25:06.052573"], ["updated_at", "2016-07-25 00:25:06.052573"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "CHERY"], ["fipe_name", "CHERY"], ["fipe_key", "chery-161"], ["fipe_id", 161], ["created_at", "2016-07-25 00:25:06.054623"], ["updated_at", "2016-07-25 00:25:06.054623"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "CHRYSLER"], ["fipe_name", "Chrysler"], ["fipe_key", "chrysler-12"], ["fipe_id", 12], ["created_at", "2016-07-25 00:25:06.056708"], ["updated_at", "2016-07-25 00:25:06.056708"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "CROSS LANDER"], ["fipe_name", "Cross Lander"], ["fipe_key", "cross-lander-14"], ["fipe_id", 14], ["created_at", "2016-07-25 00:25:06.058859"], ["updated_at", "2016-07-25 00:25:06.058859"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "DAEWOO"], ["fipe_name", "Daewoo"], ["fipe_key", "daewoo-15"], ["fipe_id", 15], ["created_at", "2016-07-25 00:25:06.061182"], ["updated_at", "2016-07-25 00:25:06.061182"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "DAIHATSU"], ["fipe_name", "Daihatsu"], ["fipe_key", "daihatsu-16"], ["fipe_id", 16], ["created_at", "2016-07-25 00:25:06.063243"], ["updated_at", "2016-07-25 00:25:06.063243"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "DODGE"], ["fipe_name", "Dodge"], ["fipe_key", "dodge-17"], ["fipe_id", 17], ["created_at", "2016-07-25 00:25:06.065247"], ["updated_at", "2016-07-25 00:25:06.065247"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "EFFA"], ["fipe_name", "EFFA"], ["fipe_key", "effa-147"], ["fipe_id", 147], ["created_at", "2016-07-25 00:25:06.067329"], ["updated_at", "2016-07-25 00:25:06.067329"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "ENGESA"], ["fipe_name", "Engesa"], ["fipe_key", "engesa-18"], ["fipe_id", 18], ["created_at", "2016-07-25 00:25:06.069245"], ["updated_at", "2016-07-25 00:25:06.069245"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "ENVEMO"], ["fipe_name", "Envemo"], ["fipe_key", "envemo-19"], ["fipe_id", 19], ["created_at", "2016-07-25 00:25:06.071231"], ["updated_at", "2016-07-25 00:25:06.071231"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "FERRARI"], ["fipe_name", "Ferrari"], ["fipe_key", "ferrari-20"], ["fipe_id", 20], ["created_at", "2016-07-25 00:25:06.073285"], ["updated_at", "2016-07-25 00:25:06.073285"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "FIBRAVAN"], ["fipe_name", "Fibravan"], ["fipe_key", "fibravan-149"], ["fipe_id", 149], ["created_at", "2016-07-25 00:25:06.075313"], ["updated_at", "2016-07-25 00:25:06.075313"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "FOTON"], ["fipe_name", "FOTON"], ["fipe_key", "foton-190"], ["fipe_id", 190], ["created_at", "2016-07-25 00:25:06.077292"], ["updated_at", "2016-07-25 00:25:06.077292"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "FYBER"], ["fipe_name", "Fyber"], ["fipe_key", "fyber-170"], ["fipe_id", 170], ["created_at", "2016-07-25 00:25:06.079648"], ["updated_at", "2016-07-25 00:25:06.079648"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "GEELY"], ["fipe_name", "GEELY"], ["fipe_key", "geely-199"], ["fipe_id", 199], ["created_at", "2016-07-25 00:25:06.081884"], ["updated_at", "2016-07-25 00:25:06.081884"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "GREAT WALL"], ["fipe_name", "GREAT WALL"], ["fipe_key", "great-wall-153"], ["fipe_id", 153], ["created_at", "2016-07-25 00:25:06.083626"], ["updated_at", "2016-07-25 00:25:06.083626"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "GURGEL"], ["fipe_name", "Gurgel"], ["fipe_key", "gurgel-24"], ["fipe_id", 24], ["created_at", "2016-07-25 00:25:06.085738"], ["updated_at", "2016-07-25 00:25:06.085738"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "HAFEI"], ["fipe_name", "HAFEI"], ["fipe_key", "hafei-152"], ["fipe_id", 152], ["created_at", "2016-07-25 00:25:06.087543"], ["updated_at", "2016-07-25 00:25:06.087543"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "ISUZU"], ["fipe_name", "Isuzu"], ["fipe_key", "isuzu-27"], ["fipe_id", 27], ["created_at", "2016-07-25 00:25:06.089764"], ["updated_at", "2016-07-25 00:25:06.089764"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "JAC"], ["fipe_name", "JAC"], ["fipe_key", "jac-177"], ["fipe_id", 177], ["created_at", "2016-07-25 00:25:06.091913"], ["updated_at", "2016-07-25 00:25:06.091913"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "JAGUAR"], ["fipe_name", "Jaguar"], ["fipe_key", "jaguar-28"], ["fipe_id", 28], ["created_at", "2016-07-25 00:25:06.093746"], ["updated_at", "2016-07-25 00:25:06.093746"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "JEEP"], ["fipe_name", "Jeep"], ["fipe_key", "jeep-29"], ["fipe_id", 29], ["created_at", "2016-07-25 00:25:06.095923"], ["updated_at", "2016-07-25 00:25:06.095923"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "JINBEI"], ["fipe_name", "JINBEI"], ["fipe_key", "jinbei-154"], ["fipe_id", 154], ["created_at", "2016-07-25 00:25:06.097938"], ["updated_at", "2016-07-25 00:25:06.097938"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "JPX"], ["fipe_name", "JPX"], ["fipe_key", "jpx-30"], ["fipe_id", 30], ["created_at", "2016-07-25 00:25:06.100028"], ["updated_at", "2016-07-25 00:25:06.100028"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "LADA"], ["fipe_name", "Lada"], ["fipe_key", "lada-32"], ["fipe_id", 32], ["created_at", "2016-07-25 00:25:06.102460"], ["updated_at", "2016-07-25 00:25:06.102460"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "LAMBORGHINI"], ["fipe_name", "LAMBORGHINI"], ["fipe_key", "lamborghini-171"], ["fipe_id", 171], ["created_at", "2016-07-25 00:25:06.104327"], ["updated_at", "2016-07-25 00:25:06.104327"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "LAND ROVER"], ["fipe_name", "Land Rover"], ["fipe_key", "land-rover-33"], ["fipe_id", 33], ["created_at", "2016-07-25 00:25:06.106400"], ["updated_at", "2016-07-25 00:25:06.106400"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "LEXUS"], ["fipe_name", "Lexus"], ["fipe_key", "lexus-34"], ["fipe_id", 34], ["created_at", "2016-07-25 00:25:06.108362"], ["updated_at", "2016-07-25 00:25:06.108362"]]
+  [1m[35m (0.7ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "LIFAN"], ["fipe_name", "LIFAN"], ["fipe_key", "lifan-168"], ["fipe_id", 168], ["created_at", "2016-07-25 00:25:06.110468"], ["updated_at", "2016-07-25 00:25:06.110468"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "LOBINI"], ["fipe_name", "LOBINI"], ["fipe_key", "lobini-127"], ["fipe_id", 127], ["created_at", "2016-07-25 00:25:06.112725"], ["updated_at", "2016-07-25 00:25:06.112725"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "LOTUS"], ["fipe_name", "Lotus"], ["fipe_key", "lotus-35"], ["fipe_id", 35], ["created_at", "2016-07-25 00:25:06.114574"], ["updated_at", "2016-07-25 00:25:06.114574"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "MAHINDRA"], ["fipe_name", "Mahindra"], ["fipe_key", "mahindra-140"], ["fipe_id", 140], ["created_at", "2016-07-25 00:25:06.116386"], ["updated_at", "2016-07-25 00:25:06.116386"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "MASERATI"], ["fipe_name", "Maserati"], ["fipe_key", "maserati-36"], ["fipe_id", 36], ["created_at", "2016-07-25 00:25:06.118349"], ["updated_at", "2016-07-25 00:25:06.118349"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "MATRA"], ["fipe_name", "Matra"], ["fipe_key", "matra-37"], ["fipe_id", 37], ["created_at", "2016-07-25 00:25:06.120605"], ["updated_at", "2016-07-25 00:25:06.120605"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "MAZDA"], ["fipe_name", "Mazda"], ["fipe_key", "mazda-38"], ["fipe_id", 38], ["created_at", "2016-07-25 00:25:06.122785"], ["updated_at", "2016-07-25 00:25:06.122785"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "MERCURY"], ["fipe_name", "Mercury"], ["fipe_key", "mercury-40"], ["fipe_id", 40], ["created_at", "2016-07-25 00:25:06.124831"], ["updated_at", "2016-07-25 00:25:06.124831"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "MG"], ["fipe_name", "MG"], ["fipe_key", "mg-167"], ["fipe_id", 167], ["created_at", "2016-07-25 00:25:06.126627"], ["updated_at", "2016-07-25 00:25:06.126627"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "MINI"], ["fipe_name", "MINI"], ["fipe_key", "mini-156"], ["fipe_id", 156], ["created_at", "2016-07-25 00:25:06.128680"], ["updated_at", "2016-07-25 00:25:06.128680"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "MIURA"], ["fipe_name", "Miura"], ["fipe_key", "miura-42"], ["fipe_id", 42], ["created_at", "2016-07-25 00:25:06.130827"], ["updated_at", "2016-07-25 00:25:06.130827"]]
+  [1m[36m (0.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "PLYMOUTH"], ["fipe_name", "Plymouth"], ["fipe_key", "plymouth-45"], ["fipe_id", 45], ["created_at", "2016-07-25 00:25:06.133231"], ["updated_at", "2016-07-25 00:25:06.133231"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "PONTIAC"], ["fipe_name", "Pontiac"], ["fipe_key", "pontiac-46"], ["fipe_id", 46], ["created_at", "2016-07-25 00:25:06.135226"], ["updated_at", "2016-07-25 00:25:06.135226"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "PORSCHE"], ["fipe_name", "Porsche"], ["fipe_key", "porsche-47"], ["fipe_id", 47], ["created_at", "2016-07-25 00:25:06.137219"], ["updated_at", "2016-07-25 00:25:06.137219"]]
+  [1m[35m (0.5ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "RAM"], ["fipe_name", "RAM"], ["fipe_key", "ram-185"], ["fipe_id", 185], ["created_at", "2016-07-25 00:25:06.138891"], ["updated_at", "2016-07-25 00:25:06.138891"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "RELY"], ["fipe_name", "RELY"], ["fipe_key", "rely-186"], ["fipe_id", 186], ["created_at", "2016-07-25 00:25:06.141162"], ["updated_at", "2016-07-25 00:25:06.141162"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "ROLLS-ROYCE"], ["fipe_name", "Rolls-Royce"], ["fipe_key", "rolls-royce-195"], ["fipe_id", 195], ["created_at", "2016-07-25 00:25:06.143177"], ["updated_at", "2016-07-25 00:25:06.143177"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "ROVER"], ["fipe_name", "Rover"], ["fipe_key", "rover-49"], ["fipe_id", 49], ["created_at", "2016-07-25 00:25:06.145043"], ["updated_at", "2016-07-25 00:25:06.145043"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "SAAB"], ["fipe_name", "Saab"], ["fipe_key", "saab-50"], ["fipe_id", 50], ["created_at", "2016-07-25 00:25:06.147129"], ["updated_at", "2016-07-25 00:25:06.147129"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "SATURN"], ["fipe_name", "Saturn"], ["fipe_key", "saturn-51"], ["fipe_id", 51], ["created_at", "2016-07-25 00:25:06.149077"], ["updated_at", "2016-07-25 00:25:06.149077"]]
+  [1m[35m (0.9ms)[0m  commit transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "SEAT"], ["fipe_name", "Seat"], ["fipe_key", "seat-52"], ["fipe_id", 52], ["created_at", "2016-07-25 00:25:06.151437"], ["updated_at", "2016-07-25 00:25:06.151437"]]
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "SHINERAY"], ["fipe_name", "SHINERAY"], ["fipe_key", "shineray-183"], ["fipe_id", 183], ["created_at", "2016-07-25 00:25:06.153478"], ["updated_at", "2016-07-25 00:25:06.153478"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "SMART"], ["fipe_name", "smart"], ["fipe_key", "smart-157"], ["fipe_id", 157], ["created_at", "2016-07-25 00:25:06.155503"], ["updated_at", "2016-07-25 00:25:06.155503"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "SSANGYONG"], ["fipe_name", "SSANGYONG"], ["fipe_key", "ssangyong-125"], ["fipe_id", 125], ["created_at", "2016-07-25 00:25:06.157513"], ["updated_at", "2016-07-25 00:25:06.157513"]]
+  [1m[35m (0.6ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "SUBARU"], ["fipe_name", "Subaru"], ["fipe_key", "subaru-54"], ["fipe_id", 54], ["created_at", "2016-07-25 00:25:06.159290"], ["updated_at", "2016-07-25 00:25:06.159290"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "TAC"], ["fipe_name", "TAC"], ["fipe_key", "tac-165"], ["fipe_id", 165], ["created_at", "2016-07-25 00:25:06.161684"], ["updated_at", "2016-07-25 00:25:06.161684"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "TROLLER"], ["fipe_name", "Troller"], ["fipe_key", "troller-57"], ["fipe_id", 57], ["created_at", "2016-07-25 00:25:06.164016"], ["updated_at", "2016-07-25 00:25:06.164016"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "WAKE"], ["fipe_name", "Wake"], ["fipe_key", "wake-163"], ["fipe_id", 163], ["created_at", "2016-07-25 00:25:06.165980"], ["updated_at", "2016-07-25 00:25:06.165980"]]
+  [1m[35m (0.8ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "WALK"], ["fipe_name", "Walk"], ["fipe_key", "walk-120"], ["fipe_id", 120], ["created_at", "2016-07-25 00:25:06.167921"], ["updated_at", "2016-07-25 00:25:06.167921"]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  Rendered home/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 535ms (Views: 12.8ms | ActiveRecord: 91.9ms)
+  [1m[35mCarMark Load (0.3ms)[0m  SELECT car_marks.fipe_id as id, car_marks.name as name FROM "car_marks" WHERE ("car_marks"."fipe_id" IS NOT NULL)
+  [1m[36mCarMark Load (0.3ms)[0m  [1mSELECT "car_marks".* FROM "car_marks"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+Processing by HomeController#index as HTML
+  [1m[36mCarMark Load (0.4ms)[0m  [1mSELECT "car_marks".* FROM "car_marks"[0m
+  Rendered home/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.4ms)
+  [1m[35mCarMark Load (0.2ms)[0m  SELECT car_marks.fipe_id as id, car_marks.name as name FROM "car_marks" WHERE ("car_marks"."fipe_id" IS NOT NULL)
+  [1m[36mCarMark Load (0.7ms)[0m  [1mSELECT "car_marks".* FROM "car_marks"[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:25:06.260568"], ["updated_at", "2016-07-25 00:25:06.260568"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "car_models" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:25:06.272106"], ["updated_at", "2016-07-25 00:25:06.272106"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "car_model_years" ("name", "fipe_key", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "NAME"], ["fipe_key", "FIPE KEY"], ["created_at", "2016-07-25 00:25:06.280753"], ["updated_at", "2016-07-25 00:25:06.280753"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "vehicle_prices" ("name", "mark", "year_model", "price", "fuel", "reference", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)  [["name", "NAME"], ["mark", "FIPE NAME"], ["year_model", "FIPE KEY"], ["price", "9999"], ["fuel", "FUEL"], ["reference", "REFERENCE"], ["created_at", "2016-07-25 00:25:06.290982"], ["updated_at", "2016-07-25 00:25:06.290982"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:45:44.822383"], ["updated_at", "2016-07-25 00:45:44.822383"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "car_models" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:45:44.832583"], ["updated_at", "2016-07-25 00:45:44.832583"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "car_model_years" ("name", "fipe_key", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "NAME"], ["fipe_key", "FIPE KEY"], ["created_at", "2016-07-25 00:45:44.840342"], ["updated_at", "2016-07-25 00:45:44.840342"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "vehicle_prices" ("name", "mark", "year_model", "price", "fuel", "reference", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["mark", "FIPE NAME"], ["year_model", "FIPE KEY"], ["price", "9999"], ["fuel", "FUEL"], ["reference", "REFERENCE"], ["created_at", "2016-07-25 00:45:44.855062"], ["updated_at", "2016-07-25 00:45:44.855062"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:46:15.495249"], ["updated_at", "2016-07-25 00:46:15.495249"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "car_models" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:46:15.507999"], ["updated_at", "2016-07-25 00:46:15.507999"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "car_model_years" ("name", "fipe_key", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "NAME"], ["fipe_key", "FIPE KEY"], ["created_at", "2016-07-25 00:46:15.516698"], ["updated_at", "2016-07-25 00:46:15.516698"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "vehicle_prices" ("name", "mark", "year_model", "price", "fuel", "reference", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["mark", "FIPE NAME"], ["year_model", "FIPE KEY"], ["price", "9999"], ["fuel", "FUEL"], ["reference", "REFERENCE"], ["created_at", "2016-07-25 00:46:15.527590"], ["updated_at", "2016-07-25 00:46:15.527590"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:47:18.400732"], ["updated_at", "2016-07-25 00:47:18.400732"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "car_models" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:47:18.414577"], ["updated_at", "2016-07-25 00:47:18.414577"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "car_model_years" ("name", "fipe_key", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "NAME"], ["fipe_key", "FIPE KEY"], ["created_at", "2016-07-25 00:47:18.422360"], ["updated_at", "2016-07-25 00:47:18.422360"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "vehicle_prices" ("name", "mark", "year_model", "price", "fuel", "reference", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["mark", "FIPE NAME"], ["year_model", "FIPE KEY"], ["price", "9999"], ["fuel", "FUEL"], ["reference", "REFERENCE"], ["created_at", "2016-07-25 00:47:18.432656"], ["updated_at", "2016-07-25 00:47:18.432656"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:50:50.982714"], ["updated_at", "2016-07-25 00:50:50.982714"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.6ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "car_models" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:50:50.994510"], ["updated_at", "2016-07-25 00:50:50.994510"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "car_model_years" ("name", "fipe_key", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "NAME"], ["fipe_key", "FIPE KEY"], ["created_at", "2016-07-25 00:50:51.003041"], ["updated_at", "2016-07-25 00:50:51.003041"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "vehicle_prices" ("name", "mark", "year_model", "price", "fuel", "reference", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["mark", "FIPE NAME"], ["year_model", "FIPE KEY"], ["price", "9999"], ["fuel", "FUEL"], ["reference", "REFERENCE"], ["created_at", "2016-07-25 00:50:51.013145"], ["updated_at", "2016-07-25 00:50:51.013145"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:51:31.452158"], ["updated_at", "2016-07-25 00:51:31.452158"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "car_models" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:51:31.465039"], ["updated_at", "2016-07-25 00:51:31.465039"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "car_model_years" ("name", "fipe_key", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "NAME"], ["fipe_key", "FIPE KEY"], ["created_at", "2016-07-25 00:51:31.473118"], ["updated_at", "2016-07-25 00:51:31.473118"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "vehicle_prices" ("name", "mark", "year_model", "price", "fuel", "reference", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["mark", "FIPE NAME"], ["year_model", "FIPE KEY"], ["price", "9999"], ["fuel", "FUEL"], ["reference", "REFERENCE"], ["created_at", "2016-07-25 00:51:31.483174"], ["updated_at", "2016-07-25 00:51:31.483174"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:51:59.699849"], ["updated_at", "2016-07-25 00:51:59.699849"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "car_models" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:51:59.717672"], ["updated_at", "2016-07-25 00:51:59.717672"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "car_model_years" ("name", "fipe_key", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "NAME"], ["fipe_key", "FIPE KEY"], ["created_at", "2016-07-25 00:51:59.725298"], ["updated_at", "2016-07-25 00:51:59.725298"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "vehicle_prices" ("name", "mark", "year_model", "price", "fuel", "reference", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["mark", "FIPE NAME"], ["year_model", "FIPE KEY"], ["price", "9999"], ["fuel", "FUEL"], ["reference", "REFERENCE"], ["created_at", "2016-07-25 00:51:59.735642"], ["updated_at", "2016-07-25 00:51:59.735642"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:52:31.038713"], ["updated_at", "2016-07-25 00:52:31.038713"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (4.0ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "car_models" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:52:31.054902"], ["updated_at", "2016-07-25 00:52:31.054902"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "car_model_years" ("name", "fipe_key", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "NAME"], ["fipe_key", "FIPE KEY"], ["created_at", "2016-07-25 00:52:31.064294"], ["updated_at", "2016-07-25 00:52:31.064294"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "vehicle_prices" ("name", "mark", "year_model", "price", "fuel", "reference", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["mark", "FIPE NAME"], ["year_model", "FIPE KEY"], ["price", "9999"], ["fuel", "FUEL"], ["reference", "REFERENCE"], ["created_at", "2016-07-25 00:52:31.075264"], ["updated_at", "2016-07-25 00:52:31.075264"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/api/1/carros/marcas.json" for 127.0.0.1 at 2016-07-24 21:54:21 -0300
+  [1m[35m (0.1ms)[0m  begin transaction
+Started GET "/api/1/carros/marcas.json" for 127.0.0.1 at 2016-07-24 21:54:21 -0300
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.3ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:54:21.199424"], ["updated_at", "2016-07-25 00:54:21.199424"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "car_models" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:54:21.218017"], ["updated_at", "2016-07-25 00:54:21.218017"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "car_model_years" ("name", "fipe_key", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "NAME"], ["fipe_key", "FIPE KEY"], ["created_at", "2016-07-25 00:54:21.225965"], ["updated_at", "2016-07-25 00:54:21.225965"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.7ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "vehicle_prices" ("name", "mark", "year_model", "price", "fuel", "reference", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["mark", "FIPE NAME"], ["year_model", "FIPE KEY"], ["price", "9999"], ["fuel", "FUEL"], ["reference", "REFERENCE"], ["created_at", "2016-07-25 00:54:21.240471"], ["updated_at", "2016-07-25 00:54:21.240471"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:54:55.516644"], ["updated_at", "2016-07-25 00:54:55.516644"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.3ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "car_models" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:54:55.529781"], ["updated_at", "2016-07-25 00:54:55.529781"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "car_model_years" ("name", "fipe_key", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "NAME"], ["fipe_key", "FIPE KEY"], ["created_at", "2016-07-25 00:54:55.537845"], ["updated_at", "2016-07-25 00:54:55.537845"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "vehicle_prices" ("name", "mark", "year_model", "price", "fuel", "reference", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["mark", "FIPE NAME"], ["year_model", "FIPE KEY"], ["price", "9999"], ["fuel", "FUEL"], ["reference", "REFERENCE"], ["created_at", "2016-07-25 00:54:55.548494"], ["updated_at", "2016-07-25 00:54:55.548494"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:55:25.633644"], ["updated_at", "2016-07-25 00:55:25.633644"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.1ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "car_models" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:55:25.647303"], ["updated_at", "2016-07-25 00:55:25.647303"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "car_model_years" ("name", "fipe_key", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "NAME"], ["fipe_key", "FIPE KEY"], ["created_at", "2016-07-25 00:55:25.655114"], ["updated_at", "2016-07-25 00:55:25.655114"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "vehicle_prices" ("name", "mark", "year_model", "price", "fuel", "reference", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["mark", "FIPE NAME"], ["year_model", "FIPE KEY"], ["price", "9999"], ["fuel", "FUEL"], ["reference", "REFERENCE"], ["created_at", "2016-07-25 00:55:25.665444"], ["updated_at", "2016-07-25 00:55:25.665444"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.2ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:55:42.099802"], ["updated_at", "2016-07-25 00:55:42.099802"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "car_models" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:55:42.114232"], ["updated_at", "2016-07-25 00:55:42.114232"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.3ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "car_model_years" ("name", "fipe_key", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "NAME"], ["fipe_key", "FIPE KEY"], ["created_at", "2016-07-25 00:55:42.126205"], ["updated_at", "2016-07-25 00:55:42.126205"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "vehicle_prices" ("name", "mark", "year_model", "price", "fuel", "reference", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["mark", "FIPE NAME"], ["year_model", "FIPE KEY"], ["price", "9999"], ["fuel", "FUEL"], ["reference", "REFERENCE"], ["created_at", "2016-07-25 00:55:42.137227"], ["updated_at", "2016-07-25 00:55:42.137227"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:56:01.371071"], ["updated_at", "2016-07-25 00:56:01.371071"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "car_models" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:56:01.384399"], ["updated_at", "2016-07-25 00:56:01.384399"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "car_model_years" ("name", "fipe_key", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "NAME"], ["fipe_key", "FIPE KEY"], ["created_at", "2016-07-25 00:56:01.392412"], ["updated_at", "2016-07-25 00:56:01.392412"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "vehicle_prices" ("name", "mark", "year_model", "price", "fuel", "reference", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["mark", "FIPE NAME"], ["year_model", "FIPE KEY"], ["price", "9999"], ["fuel", "FUEL"], ["reference", "REFERENCE"], ["created_at", "2016-07-25 00:56:01.402701"], ["updated_at", "2016-07-25 00:56:01.402701"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:59:44.816458"], ["updated_at", "2016-07-25 00:59:44.816458"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.2ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "car_models" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 00:59:44.829421"], ["updated_at", "2016-07-25 00:59:44.829421"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "car_model_years" ("name", "fipe_key", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "NAME"], ["fipe_key", "FIPE KEY"], ["created_at", "2016-07-25 00:59:44.837783"], ["updated_at", "2016-07-25 00:59:44.837783"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "vehicle_prices" ("name", "mark", "year_model", "price", "fuel", "reference", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["mark", "FIPE NAME"], ["year_model", "FIPE KEY"], ["price", "9999"], ["fuel", "FUEL"], ["reference", "REFERENCE"], ["created_at", "2016-07-25 00:59:44.847837"], ["updated_at", "2016-07-25 00:59:44.847837"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.6ms)[0m  [1mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "car_marks" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 01:02:26.695027"], ["updated_at", "2016-07-25 01:02:26.695027"]]
+  [1m[36m (0.1ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (3.3ms)[0m  rollback transaction
+  [1m[36m (0.2ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "car_models" ("name", "fipe_name", "fipe_key", "fipe_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["fipe_name", "FIPE NAME"], ["fipe_key", "FIPE KEY"], ["fipe_id", 9999], ["created_at", "2016-07-25 01:02:26.715193"], ["updated_at", "2016-07-25 01:02:26.715193"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.4ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36m (0.1ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "car_model_years" ("name", "fipe_key", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["name", "NAME"], ["fipe_key", "FIPE KEY"], ["created_at", "2016-07-25 01:02:26.723894"], ["updated_at", "2016-07-25 01:02:26.723894"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "vehicle_prices" ("name", "mark", "year_model", "price", "fuel", "reference", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "NAME"], ["mark", "FIPE NAME"], ["year_model", "FIPE KEY"], ["price", "9999"], ["fuel", "FUEL"], ["reference", "REFERENCE"], ["created_at", "2016-07-25 01:02:26.735347"], ["updated_at", "2016-07-25 01:02:26.735347"]]
+  [1m[35m (0.1ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36m (0.5ms)[0m  [1mrollback transaction[0m

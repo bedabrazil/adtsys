@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AdtsysApplicantTest</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="overlay-body">
+		<%= yield %>
+	</div>
+  <div class="loader">
+    <div class="loader__figure"></div>
+    <p class="loader__label"></p>    
+  </div>	
+</body>
+</html>
